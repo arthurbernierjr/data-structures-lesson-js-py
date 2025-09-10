@@ -88,6 +88,158 @@ A structure organizes data so operations are efficient. Choose a structure to wi
 
 Why these matter… If you need order of arrival use a queue. If you need last change first use a stack. If you mutate many middle elements an array may be better than a singly linked list. If you need sorted retrieval and fast search move to trees.
 
+# Linked List
+
+* A chain of nodes. Each node stores a value and a pointer to the next node.
+* You insert or remove by rewiring pointers. Access by walking from the head.
+
+**Analogy**
+
+* Think of people holding hands in a line. To reach person 7 you start at person 1 and count.
+
+**Pros**
+
+* O(1) insert or delete at the head.
+* Grows easily without moving existing data.
+
+**Cons**
+
+* O(n) random access.
+* Extra memory for pointers.
+
+# Stack
+
+* Last in, first out. You interact only with the top.
+* Operations are push, pop, peek. All O(1).
+
+**Analogy**
+
+* A stack of plates on a table. Last plate on is the first plate off.
+
+**Pros**
+
+* Simple control of order. Great for backtracking and function calls.
+
+**Cons**
+
+* You cannot reach the middle without popping items.
+
+# Queue
+
+* First in, first out. Items leave in the same order they arrive.
+* Operations are enqueue and dequeue. Both O(1).
+
+**Analogy**
+
+* A line at a ticket booth. First person in line gets served first.
+
+**Pros**
+
+* Natural for scheduling and buffering.
+
+**Cons**
+
+* Like stacks, random access is not the point.
+
+# Binary Tree
+
+* A hierarchical structure. Each node can have up to two children.
+* Shape does not enforce ordering unless rules are added.
+
+**Analogy**
+
+* A family tree that splits into left and right branches.
+
+**Pros**
+
+* Models hierarchy cleanly. Enables many traversals.
+
+**Cons**
+
+* Without ordering rules you do not get fast search guarantees.
+
+# Binary Search Tree
+
+* A binary tree with an invariant. Left subtree holds smaller values and right subtree holds larger values.
+* Insert and search walk left or right by comparisons.
+
+**Analogy**
+
+* A word list on paper where each page split tells you to go left for earlier words and right for later words.
+
+**Pros**
+
+* O(log n) search and insert if height stays small.
+* Inorder traversal yields values in sorted order.
+
+**Cons**
+
+* If it becomes skewed it degrades to O(n).
+* Needs care to stay balanced.
+
+# AVL Tree
+
+* A self balancing BST. Every node tracks height. The height difference between left and right is at most one.
+* After inserts or deletes it rotates subtrees to restore balance.
+
+**Analogy**
+
+* A librarian who restacks books to keep shelves even so searching stays fast.
+
+**Pros**
+
+* Search, insert, delete stay O(log n) even in worst case.
+
+**Cons**
+
+* Extra memory for heights. Extra work for rotations.
+
+# What these ideas mean
+
+## Recursion
+
+* A function that calls itself to solve a smaller version of the same problem.
+* You define a base case to stop and a step that reduces the problem.
+
+**Analogy**
+
+* Russian nesting dolls. Open one and the same pattern repeats at a smaller scale.
+
+**Why it matters**
+
+* Natural fit for trees since each subtree is a smaller tree.
+
+## Traversal
+
+* A systematic way to visit every node in a structure.
+* On trees you often use BFS or DFS.
+
+**BFS**
+
+* Visit by levels using a queue. Good when answers are near the root.
+
+**DFS**
+
+* Go deep using recursion or a stack. Preorder, inorder, postorder are common.
+* Inorder on a BST yields sorted output.
+
+## Balancing
+
+* Keeping a tree’s height near log n so operations stay fast.
+* Self balancing trees like AVL detect imbalance and perform rotations.
+
+**Analogy**
+
+* Keeping a mobile sculpture level. If one side drops you reposition pieces to restore symmetry.
+
+# Quick takeaways
+
+* Lists are for flexible insertion. Stacks and queues are for controlled order.
+* Trees give hierarchy. BST adds fast ordered search. AVL (Adelson-Velsky and Landis) keeps it fast under pressure.
+* Recursion and traversal are how you move through the structure.
+* Balancing protects performance when input order would otherwise break it.
+
+
 ---
 
 ## Part B… Binary Search Trees Deep Dive
