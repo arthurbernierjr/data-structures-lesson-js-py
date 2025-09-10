@@ -230,7 +230,7 @@ class Queue {
 // and return the Node in the tree with the same value.
 // If the value isn't in the tree return null.
 
-class Node {
+class BSTNode {
     constructor(value){
         this.value = value;
         this.left = null;
@@ -244,7 +244,7 @@ class BinarySearchTree {
     }
 
     insert(value){
-        const newNode = new Node(value);
+        const newNode = new BSTNode(value);
         if(this.root === null){
             this.root = newNode;
             return this;
@@ -392,4 +392,4 @@ class BinarySearchTree {
     }
 }
 
-module.exports = { BinarySearchTree, Node, LinkedList, Stack, Queue };
+module.exports = { BinarySearchTree, Node, LinkedList, Stack, Queue, BSTNode };
